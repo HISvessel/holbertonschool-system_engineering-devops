@@ -56,3 +56,38 @@ a) Networking basics
     -> 192.168.0.0 to 192.168.255.255: This falls within the Class C range of 192.0.0.0 through 223.255.255.0, in which the first three bits are 110.
     -> Multicast (formerly called Class D): The first four bits in the address are 1110, with addresses ranging from 224.0.0.0 to 239.255.255.255.
     -> Reserved for future/experimental use (formerly called Class E) : addresses 240.0.0.0 to 254.255.255.254.
+
+Network functionality:
+    the network is the one that establishes the communication between the server(the one hosting the service) and the customer(the one soliciting the service from the server.)
+    A protocol is set as rules, with these rules being the layers through which the information or service requested is sent from the host hardware to the customer software, the final end goal of the communication chain. 
+
+
+b) Server
+    Servers are located in datacenter, which are buildings that host up to thousands of computers(servers). These computers are just the port, only accessible by a network, and can be physical or virtual. Additionally, a server runs an Operating System(OS).
+
+Server components:
+    Case, RAM, Keyboard, Network connection, Motherboard, Hard Drive, Mouse, Operating System, CPU, Video Card, Screen and Applications. Everything a computer has is a server component.
+
+Server functionality:
+    In a web infrastructure, servers provide the service, and everyone that connects to the network obtains a service from the server. And the source of the service exists in the Operating System, so that OS is the primary component of a server.
+
+Dynamic Service: 
+    the software system that stores organizes and provides access to information in a computer's OS directory. 
+
+c) DNS: 
+    stands for Dynamic Name Service and serves the function of translating a      domain name into an IP address. It's a method used to simplify the IP address you are looking for by typing the host's domain name instead of the exact IP address you are looking for(which you may not know or want to remember.)
+
+    Storage of domains:
+    All website domains are first checked on the OS, search engine and resolver's cached data system to find them by their own memory. If they do not know it, they go to the ISP(internet service provider)'s root TLD(top level domain) server to find the appropriate domains suffix(.COM, .NET, .GOV, .EDU, etc.), and in its relative path, find the correct domain name in the domain registrar contained for that TLD. 
+
+    Search goal: run a search and obtain the server port attached to the domain name, which gives us access to its server. Simply put, we use the domain, search for its name in the quickest access point(cached in the searcher, resolver or TLD relative path for the domain registrar) and the domain name will give us the IP address we need to communicate with the server. 
+
+d) Web server:
+    provides a service for hosting and managing websites. Routes the traffic and provides the services in websites. They are accessed by users via a web browser.
+
+e) Proxy Server
+    a standalone intermediate between the endpoint device and the server the endpoint device is requesting from. Pertinent to add for the security component, ensure that only people located in the correct layer and the correct service or infrastructure can create requests. This layer of the server communicates with the firewall to ensure security.
+
+f) firewall service:
+    server monitors that exclude access to servers by blocking IP addressess in the netwrk traffic. It does so by establishing its own set of rules and monitors. It should be balanced and well administrated, where the correct traffic is allowed in and provided services while blocking those who you do not want having access tonthat sofware.
+
