@@ -1,0 +1,15 @@
+This web infrastructure schema takes the previous multi point infrastructure and upgrades it by creating several layers of security, including SSL protections, three layers of firewalls and monitoring tools that sit across the network traffic and at server level. This upgraded infrastructure allows us to monitor specific points in the infratsructure to ensure traffic stays within the scope of normal operation and utilizes firewalls and SSL for inbound protection and outbound consistency and security. These are the components that are added, at what level they are added and why:
+
+An SSL certificate sits between a web URL window and the client requesting data, ensuring request encryption for a secure traffic into the server and a protected search and response done by the user. This way, they do not invite DDoS attacks through their requests, as data remains encrypted.
+
+3 firewalls are added: one is placed at the URL search and DNS search, ensuring the correct clients can make the request into the server DNS, the second is placed at the load balancer entry point to ensure the traffic is protected. The third firewall is placed at the point of divergence between both servers, ensuring a final layer of protection before the request is actually send into the database. 
+
+3 monitoring clients are inserted: one at load balancer, and one placed on each server. The ideal place to monitor the infrastructure is at the converging point of traffic and at server to monitor the clients entering into the traffic space and also at the server, so we see who is in there and who is at the server and what are they requesting from the server once the final line of communication between servers are established. 
+
+The following are points of weakness for the application of this infrastructure:
+
+Secure Socket Layers are a good way of protecting the user from having their data getting recognized online, and so, placing the SSL at a point where there is only very little traffic can be a point of contention once a response is sent, since breaching of encryption is possible at the traffic level, where infiltration activity is usually very high. Its why monitors are placed all round the load balancer and the server.
+
+A single SQL server still remains a single point of failure, and not creating duplicate entities(hardware and software) of the database can present a problem for server responses on a larger traffic error. Safeguarding everything into a single agent overseeing write operations can present a problem for too many write operations, since these queues can stack up and crash the network. 
+
+Having multiple servers comprised of the same components and not distributing its responsiblities can present a problem for load balancing if a server infrastructure crashes. Traffic might cluster into the secondary server, but dividing the respective server responses and components into independent entities can also help us pinpoint the place of failure for requests and responses. 
