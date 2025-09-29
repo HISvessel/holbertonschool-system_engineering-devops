@@ -1,0 +1,10 @@
+this web infrastructure is a more elaborate schematic for web networks. It does this by expanding and distributing its network traffic through the use of three servers, two where the server infrastructure provide services to the server, and a third server that servers as a load balancer.
+
+The above elements of the infrastructure work in conjunction to allow more consumers to send requests to the web, and it controls the traffic of these requests by using a load balancer, which distributes the server load algorithmically by searching the lowest loaded server and sending requests there for even distribution. It uses an Active-Passive distribution setup, ideal for single load balancers such as in this scenario. 
+
+The database primary replication model works by distributing the functional load into separate nodes. The primary master node handles all writing operation such as copying and updating into the database, and the requests for reading operations and recieving copies of the data is divided into one or more slave node clusters.
+
+This data can handle a larger traffic of requests and send more responses, but it has quite a few flaws as well:
+1. SPOF: This is the prominent error that surges all throughout the server, since you are dividing the load into multiple pieces, but the hierarchies are reliant upon a single component at every level: a single load balancer handles traffic efficiently, but the network is reliant upon a single, multi function proxy for handling requests. If network traffic increases, the load balancer becomes overwhelmed and breaks all communication. Likewise, having a master-slave cluster delegates responsibilities, but relies upon a singular entity for traffic, once again creating a SPOF scenario. 
+2. Security: entities are not created or configured to have firewalls to monitor traffic. Having no firewalls can send invasive data into the code and database that can ruin the network traffic.
+3. Monitoring: no reverse proxies exist, meaning we do not use encripting tools to protect the server with SSL or HTTPS, leaving the codebase wide open for DDoS attacks.
